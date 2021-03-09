@@ -1,6 +1,7 @@
 ---
 layout: lesson
-root: .
+root: /
+permalink: index.html
 ---
 
 Make is a tool which can run commands to read files, process these

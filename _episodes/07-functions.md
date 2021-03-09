@@ -19,19 +19,19 @@ include config.mk
 
 # Generate summary table.
 results.txt : $(ZIPF_SRC) isles.dat abyss.dat last.dat
-	$(ZIPF_EXE) *.dat > $@
+\t$(ZIPF_EXE) *.dat > $@
 
 # Count words.
 .PHONY : dats
 dats : isles.dat abyss.dat last.dat
 
 %.dat : books/%.txt $(COUNT_SRC)
-	$(COUNT_EXE) $< $*.dat
+\t$(COUNT_EXE) $< $*.dat
 
 .PHONY : clean
 clean :
-	rm -f *.dat
-	rm -f results.txt
+\trm -f *.dat
+\trm -f results.txt
 ~~~
 {: .language-make}
 
@@ -52,7 +52,7 @@ We can add a `.PHONY` target and rule to show the variable's value:
 ~~~
 .PHONY : variables
 variables:
-	@echo TXT_FILES: $(TXT_FILES)
+\t@echo TXT_FILES: $(TXT_FILES)
 ~~~
 {: .language-make}
 
@@ -97,8 +97,8 @@ We can extend `variables` to show the value of `DAT_FILES` too:
 ~~~
 .PHONY : variables
 variables:
-	@echo TXT_FILES: $(TXT_FILES)
-	@echo DAT_FILES: $(DAT_FILES)
+\t@echo TXT_FILES: $(TXT_FILES)
+\t@echo DAT_FILES: $(DAT_FILES)
 ~~~
 {: .language-make}
 
@@ -127,8 +127,8 @@ dats : $(DAT_FILES)
 
 .PHONY : clean
 clean :
-	rm -f $(DAT_FILES)
-	rm -f results.txt
+\trm -f $(DAT_FILES)
+\trm -f results.txt
 ~~~
 {: .language-make}
 
@@ -136,7 +136,7 @@ Let's also tidy up the `%.dat` rule by using the automatic variable `$@` instead
 
 ```
 %.dat : books/%.txt $(COUNT_SRC)
-	$(COUNT_EXE) $< $@
+\t$(COUNT_EXE) $< $@
 ```
 {: .language-make}
 
@@ -162,7 +162,7 @@ We can also rewrite `results.txt`:
 
 ~~~
 results.txt : $(ZIPF_SRC) $(DAT_FILES)
-	$(ZIPF_EXE) $(DAT_FILES) > $@
+\t$(ZIPF_EXE) $(DAT_FILES) > $@
 ~~~
 {: .language-make}
 
@@ -193,11 +193,11 @@ $ cat results.txt
 {: .language-bash}
 
 ~~~
-Book	First	Second	Ratio
-abyss	4044	2807	1.44
-isles	3822	2460	1.55
-last	12244	5566	2.20
-sierra	4242	2469	1.72
+Book\tFirst\tSecond\tRatio
+abyss\t4044\t2807\t1.44
+isles\t3822\t2460\t1.55
+last\t12244\t5566\t2.20
+sierra\t4242\t2469\t1.72
 ~~~
 {: .output}
 
@@ -214,24 +214,24 @@ DAT_FILES=$(patsubst books/%.txt, %.dat, $(TXT_FILES))
 
 # Generate summary table.
 results.txt : $(ZIPF_SRC) $(DAT_FILES)
-	$(ZIPF_EXE) $(DAT_FILES) > $@
+\t$(ZIPF_EXE) $(DAT_FILES) > $@
 
 # Count words.
 .PHONY : dats
 dats : $(DAT_FILES)
 
 %.dat : books/%.txt $(COUNT_SRC)
-	$(COUNT_EXE) $< $@
+\t$(COUNT_EXE) $< $@
 
 .PHONY : clean
 clean :
-	rm -f $(DAT_FILES)
-	rm -f results.txt
+\trm -f $(DAT_FILES)
+\trm -f results.txt
 
 .PHONY : variables
 variables:
-	@echo TXT_FILES: $(TXT_FILES)
-	@echo DAT_FILES: $(DAT_FILES)
+\t@echo TXT_FILES: $(TXT_FILES)
+\t@echo DAT_FILES: $(DAT_FILES)
 ~~~
 {: .language-make}
 

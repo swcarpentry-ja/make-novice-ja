@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Instructor Notes"
-permalink: /guide/
+permalink: /ja/guide/
 ---
 
 Make is a popular tool for automating the building of software -

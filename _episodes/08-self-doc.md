@@ -36,9 +36,9 @@ So, how would we implement this? We could write a rule like:
 ~~~
 .PHONY : help
 help :
-	@echo "results.txt : Generate Zipf summary table."
-	@echo "dats        : Count words in text files."
-	@echo "clean       : Remove auto-generated files."
+\t@echo "results.txt : Generate Zipf summary table."
+\t@echo "dats        : Count words in text files."
+\t@echo "clean       : Remove auto-generated files."
 ~~~
 {: .language-make}
 
@@ -59,26 +59,26 @@ which `sed` can detect. Since Make uses `#` for comments, we can use
 ~~~
 ## results.txt : Generate Zipf summary table.
 results.txt : $(ZIPF_SRC) $(DAT_FILES)
-	$(ZIPF_EXE) $(DAT_FILES) > $@
+\t$(ZIPF_EXE) $(DAT_FILES) > $@
 
 ## dats        : Count words in text files.
 .PHONY : dats
 dats : $(DAT_FILES)
 
 %.dat : books/%.txt $(COUNT_SRC)
-	$(COUNT_EXE) $< $@
+\t$(COUNT_EXE) $< $@
 
 ## clean       : Remove auto-generated files.
 .PHONY : clean
 clean :
-	rm -f $(DAT_FILES)
-	rm -f results.txt
+\trm -f $(DAT_FILES)
+\trm -f results.txt
 
 ## variables   : Print variables.
 .PHONY : variables
 variables:
-	@echo TXT_FILES: $(TXT_FILES)
-	@echo DAT_FILES: $(DAT_FILES)
+\t@echo TXT_FILES: $(TXT_FILES)
+\t@echo DAT_FILES: $(DAT_FILES)
 ~~~
 {: .language-make}
 
@@ -91,7 +91,7 @@ We can then write a `help` target that applies `sed` to our `Makefile`:
 ~~~
 .PHONY : help
 help : Makefile
-	@sed -n 's/^##//p' $<
+\t@sed -n 's/^##//p' $<
 ~~~
 {: .language-make}
 

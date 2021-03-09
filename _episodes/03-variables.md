@@ -18,25 +18,25 @@ After the exercise at the end of the previous episode, our Makefile looked like 
 ~~~
 # Generate summary table.
 results.txt : isles.dat abyss.dat last.dat
-	python testzipf.py abyss.dat isles.dat last.dat > results.txt
+\tpython testzipf.py abyss.dat isles.dat last.dat > results.txt
 
 # Count words.
 .PHONY : dats
 dats : isles.dat abyss.dat last.dat
 
 isles.dat : books/isles.txt
-	python countwords.py books/isles.txt isles.dat
+\tpython countwords.py books/isles.txt isles.dat
 
 abyss.dat : books/abyss.txt
-	python countwords.py books/abyss.txt abyss.dat
+\tpython countwords.py books/abyss.txt abyss.dat
 
 last.dat : books/last.txt
-	python countwords.py books/last.txt last.dat
+\tpython countwords.py books/last.txt last.dat
 
 .PHONY : clean
 clean :
-	rm -f *.dat
-	rm -f results.txt
+\trm -f *.dat
+\trm -f results.txt
 ~~~
 {: .language-make}
 
@@ -65,7 +65,7 @@ name of the results file name:
 
 ~~~
 results.txt : isles.dat abyss.dat last.dat
-	python testzipf.py abyss.dat isles.dat last.dat > results.txt
+\tpython testzipf.py abyss.dat isles.dat last.dat > results.txt
 ~~~
 {: .language-make}
 
@@ -74,7 +74,7 @@ with `$@`:
 
 ~~~
 results.txt : isles.dat abyss.dat last.dat
-	python testzipf.py abyss.dat isles.dat last.dat > $@
+\tpython testzipf.py abyss.dat isles.dat last.dat > $@
 ~~~
 {: .language-make}
 
@@ -86,7 +86,7 @@ We can replace the dependencies in the action with `$^`:
 
 ~~~
 results.txt : isles.dat abyss.dat last.dat
-	python testzipf.py $^ > $@
+\tpython testzipf.py $^ > $@
 ~~~
 {: .language-make}
 

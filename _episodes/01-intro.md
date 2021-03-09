@@ -136,9 +136,9 @@ $ python testzipf.py abyss.dat isles.dat
 {: .language-bash}
 
 ~~~
-Book	First	Second	Ratio
-abyss	4044	2807	1.44
-isles	3822	2460	1.55
+Book\tFirst\tSecond\tRatio
+abyss\t4044\t2807\t1.44
+isles\t3822\t2460\t1.55
 ~~~
 {: .output}
 

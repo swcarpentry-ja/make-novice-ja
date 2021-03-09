@@ -1,7 +1,8 @@
 ---
 layout: page
 title: "Setup"
-root: .
+root: /ja/
+permalink: /ja/setup/
 ---
 
 ## Files
@@ -30,7 +31,7 @@ You need to download some files to follow this lesson:
    ~~~
    {: .source}
 
-## Software
+## ソフトウェア
 
 You also need to have the following software installed on your computer to
 follow this lesson:

@@ -19,7 +19,7 @@ rule]({{ page.root }}/reference#pattern-rule) which can be used to build any
 
 ~~~
 %.dat : books/%.txt countwords.py
-	python countwords.py $< $*.dat
+\tpython countwords.py $< $*.dat
 ~~~
 {: .language-make}
 
@@ -77,19 +77,19 @@ Our Makefile is now much shorter and cleaner:
 ~~~
 # Generate summary table.
 results.txt : testzipf.py isles.dat abyss.dat last.dat
-	python $< *.dat > $@
+\tpython $< *.dat > $@
 
 # Count words.
 .PHONY : dats
 dats : isles.dat abyss.dat last.dat
 
 %.dat : books/%.txt countwords.py
-	python countwords.py $< $*.dat
+\tpython countwords.py $< $*.dat
 
 .PHONY : clean
 clean :
-	rm -f *.dat
-	rm -f results.txt
+\trm -f *.dat
+\trm -f results.txt
 ~~~
 {: .language-make}
 
@@ -107,7 +107,7 @@ but then we wouldn't have learned about `$*`.
 
 ```
 %.dat : books/%.txt countwords.py
-	python countwords.py $< $@
+\tpython countwords.py $< $@
 ```
 {: .language-make}
 

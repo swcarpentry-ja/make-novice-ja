@@ -1,6 +1,8 @@
 ---
 layout: reference
-root: .
+Title: "Reference"
+root: /ja/
+permalink: /ja/reference/
 ---
 
 ## Running Make
@@ -80,8 +82,8 @@ Rules:
 
 ~~~
 target : dependency1 dependency2 ...
-	action1
-	action2
+\taction1
+\taction2
         ...
 ~~~
 {: .make}

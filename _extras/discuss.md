@@ -122,8 +122,8 @@ shell variables can be confused and can be in conflict.
 > 
 > .PHONY: plots
 > plots:
-> 	for book in $(BOOKS); do python plotcount.py $book.dat $book.png; done
-> ~~~	
+> \tfor book in $(BOOKS); do python plotcount.py $book.dat $book.png; done
+> ~~~\t
 > {: .make}
 > 
 > the action that would be passed to the shell to execute would be:
@@ -147,8 +147,8 @@ shell variables can be confused and can be in conflict.
 > 
 > .PHONY: plots
 > plots:
-> 	for book in $(BOOKS); do python plotcount.py $$book.dat $$book.png; done
-> ~~~	
+> \tfor book in $(BOOKS); do python plotcount.py $$book.dat $$book.png; done
+> ~~~\t
 > {: .make}
 > 
 > which produces the correct shell command:
